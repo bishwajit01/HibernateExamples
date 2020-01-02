@@ -45,16 +45,21 @@ public class HibernateTest {
 		do {
 			userDetails = (UserDetails) session.get(UserDetails.class, i);
 			if (null != userDetails) {
-				System.out.println("ID       :: " + userDetails.getUserId());
-				System.out.println("UserName :: " + userDetails.getUserName());
-				System.out.println("Address  :: " + userDetails.getDescription());
-				System.out.println("Joining  :: " + userDetails.getDate());
-				System.out.println("Country  :: " + userDetails.getCountry());
-				System.out.println("House No :: " + userDetails.getAddress().getHouseNumber());
-				System.out.println("Street   :: " + userDetails.getAddress().getStreet());
-				System.out.println("City     :: " + userDetails.getAddress().getCity());
-				System.out.println("Pincode  :: " + userDetails.getAddress().getPincode());
-				System.out.println("State    :: " + userDetails.getAddress().getState());
+				System.out.println("ID         :: " + userDetails.getUserId());
+				System.out.println("UserName   :: " + userDetails.getUserName());
+				System.out.println("Address    :: " + userDetails.getDescription());
+				System.out.println("Joining    :: " + userDetails.getDate());
+				System.out.println("Country    :: " + userDetails.getCountry());
+				System.out.println("H_House No :: " + userDetails.getHomeAddress().getHouseNumber());
+				System.out.println("H_Street   :: " + userDetails.getHomeAddress().getStreet());
+				System.out.println("H_City     :: " + userDetails.getHomeAddress().getCity());
+				System.out.println("H_Pincode  :: " + userDetails.getHomeAddress().getPincode());
+				System.out.println("H_State    :: " + userDetails.getHomeAddress().getState());
+				System.out.println("O_House No :: " + userDetails.getOfficeAddress().getHouseNumber());
+				System.out.println("O_Street   :: " + userDetails.getOfficeAddress().getStreet());
+				System.out.println("O_City     :: " + userDetails.getOfficeAddress().getCity());
+				System.out.println("O_Pincode  :: " + userDetails.getOfficeAddress().getPincode());
+				System.out.println("O_State    :: " + userDetails.getOfficeAddress().getState());
 				i++;
 			} else {
 				break;
@@ -80,14 +85,6 @@ public class HibernateTest {
 		address1.setStreet("2nd Cross");
 		address1.setPincode("560100");
 
-		// Setting Values into First User Details Objects.
-		// userDetails.setUserId(1);
-		userDetails1.setUserName("Bishwajit");
-		userDetails1.setDate(new Date());
-		userDetails1.setDescription("DESC 1");
-		userDetails1.setCountry("INDIA");
-		userDetails1.setAddress(address1);
-
 		// Setting Values into Second Address Objects.
 		address2.setHouseNumber("A206");
 		address2.setCity("Bengaluru");
@@ -95,13 +92,23 @@ public class HibernateTest {
 		address2.setStreet("2nd Cross");
 		address2.setPincode("560001");
 
+		// Setting Values into First User Details Objects.
+		// userDetails.setUserId(1);
+		userDetails1.setUserName("Bishwajit");
+		userDetails1.setDate(new Date());
+		userDetails1.setDescription("DESC 1");
+		userDetails1.setCountry("INDIA");
+		userDetails1.setHomeAddress(address1);
+		userDetails1.setOfficeAddress(address2);
+
 		// Setting Values into Second User Details Objects.
 		// userDetails.setUserId(1);
 		userDetails2.setUserName("Vikram");
 		userDetails2.setDate(new Date());
 		userDetails2.setDescription("DESC 2");
 		userDetails2.setCountry("INDIA");
-		userDetails2.setAddress(address2);
+		userDetails2.setHomeAddress(address2);
+		userDetails2.setOfficeAddress(address1);
 
 		// Creating the Session factory from Configuration File.
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();

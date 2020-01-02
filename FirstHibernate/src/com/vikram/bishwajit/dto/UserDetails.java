@@ -2,6 +2,8 @@ package com.vikram.bishwajit.dto;
 
 import java.util.Date;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -43,8 +45,22 @@ public class UserDetails {
 	private String country;
 
 	@Embedded
-	@Column(name = "ADDRESS")
-	private Address address;
+	@AttributeOverrides({
+			@AttributeOverride(name = "street", column = @Column(name = "HOME_STREET")),
+			@AttributeOverride(name = "houseNumber", column = @Column(name = "HOME_HOUSE_NUMBER")),
+			@AttributeOverride(name = "city", column = @Column(name = "HOME_CITY")),
+			@AttributeOverride(name = "state", column = @Column(name = "HOME_STATE")),
+			@AttributeOverride(name = "pincode", column = @Column(name = "HOME_PINCODE")) })
+	private Address homeAddress;
+
+	@Embedded
+	@AttributeOverrides({
+		@AttributeOverride(name = "street", column = @Column(name = "OFFICE_STREET")),
+		@AttributeOverride(name = "houseNumber", column = @Column(name = "OFFICE_HOUSE_NUMBER")),
+		@AttributeOverride(name = "city", column = @Column(name = "OFFICE_CITY")),
+		@AttributeOverride(name = "state", column = @Column(name = "OFFICE_STATE")),
+		@AttributeOverride(name = "pincode", column = @Column(name = "OFFICE_PINCODE")) })
+	private Address officeAddress;
 
 	/**
 	 * @return the country
@@ -117,17 +133,31 @@ public class UserDetails {
 	}
 
 	/**
-	 * @return the address
+	 * @return the homeAddress
 	 */
-	public Address getAddress() {
-		return address;
+	public Address getHomeAddress() {
+		return homeAddress;
 	}
 
 	/**
-	 * @param address the address to set
+	 * @param homeAddress the homeAddress to set
 	 */
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setHomeAddress(Address homeAddress) {
+		this.homeAddress = homeAddress;
+	}
+
+	/**
+	 * @return the officeAddress
+	 */
+	public Address getOfficeAddress() {
+		return officeAddress;
+	}
+
+	/**
+	 * @param officeAddress the officeAddress to set
+	 */
+	public void setOfficeAddress(Address officeAddress) {
+		this.officeAddress = officeAddress;
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.vikram.bishwajit.dto;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 /**
@@ -9,10 +10,19 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Address {
 
+	@Column(name = "HOUSE_NUMBER")
 	private String houseNumber;
+
+	@Column(name = "STREET")
 	private String street;
+
+	@Column(name = "CITY")
 	private String city;
+
+	@Column(name = "STATE")
 	private String state;
+
+	@Column(name = "PINCODE")
 	private String pincode;
 
 	/**
