@@ -3,6 +3,7 @@ package com.vikram.bishwajit.dto;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +23,7 @@ import javax.persistence.Transient;
 public class UserDetails {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "USER_ID")
 	private int userId;
 
@@ -40,6 +41,10 @@ public class UserDetails {
 	@Column(name = "COUNTRY")
 	@Transient // By making it transient, it will not add in the database.
 	private String country;
+
+	@Embedded
+	@Column(name = "ADDRESS")
+	private Address address;
 
 	/**
 	 * @return the country
@@ -110,5 +115,19 @@ public class UserDetails {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
+	/**
+	 * @return the address
+	 */
+	public Address getAddress() {
+		return address;
+	}
+
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 }
