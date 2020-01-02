@@ -42,6 +42,27 @@ public class HibernateTest {
 
 		// Close Session.
 		session.close();
+
+		userDetails = null;
+
+		/**
+		 * Fetching from the Database.
+		 */
+		// Creating the Session out of sessionFactory.
+		session = sessionFactory.openSession();
+
+		// Begin the Transaction.
+		session.beginTransaction();
+
+		// Getting the UserDetails::
+		// Passing the user details class as object and passing the Primary Key
+		// TypeCasting into the UserDetails.
+		userDetails = (UserDetails) session.get(UserDetails.class, 1);
+		System.out.println("ID       :: " + userDetails.getUserId());
+		System.out.println("UserName :: " + userDetails.getUserName());
+		System.out.println("Address  :: " + userDetails.getAddress());
+		System.out.println("Joining  :: " + userDetails.getDate());
+		System.out.println("Country  :: " + userDetails.getCountry());
 	}
 
 }
