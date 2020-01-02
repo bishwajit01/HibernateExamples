@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
@@ -21,7 +22,7 @@ import javax.persistence.Transient;
 public class UserDetails {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "USER_ID")
 	private int userId;
 
@@ -32,9 +33,9 @@ public class UserDetails {
 	@Temporal(TemporalType.DATE) // JUST THE DATE
 	private Date date;
 
-	@Column(name = "ADDRESS")
+	@Column(name = "DESCRIPTION")
 	@Lob
-	private String address;
+	private String description;
 
 	@Column(name = "COUNTRY")
 	@Transient // By making it transient, it will not add in the database.
@@ -69,20 +70,6 @@ public class UserDetails {
 	}
 
 	/**
-	 * @return the address
-	 */
-	public String getAddress() {
-		return address;
-	}
-
-	/**
-	 * @param address the address to set
-	 */
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	/**
 	 * @return the userId
 	 */
 	public int getUserId() {
@@ -110,4 +97,18 @@ public class UserDetails {
 		this.userName = userName;
 	}
 
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
 }

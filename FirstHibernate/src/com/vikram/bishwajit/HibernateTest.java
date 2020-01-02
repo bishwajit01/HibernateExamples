@@ -22,14 +22,14 @@ public class HibernateTest {
 		// userDetails.setUserId(1);
 		userDetails1.setUserName("Bishwajit");
 		userDetails1.setDate(new Date());
-		userDetails1.setAddress("Bangalore");
+		userDetails1.setDescription("DESC 1");
 		userDetails1.setCountry("INDIA");
 
 		// Setting Values into Second User Details Objects.
 		// userDetails.setUserId(1);
 		userDetails2.setUserName("Vikram");
 		userDetails2.setDate(new Date());
-		userDetails2.setAddress("Bhagalpur");
+		userDetails2.setDescription("DESC 2");
 		userDetails2.setCountry("INDIA");
 		/**
 		 * Saving into the Database.
@@ -68,15 +68,19 @@ public class HibernateTest {
 		// Getting the UserDetails::
 		// Passing the user details class as object and passing the Primary Key
 		// TypeCasting into the UserDetails.
-		while (true) {
+		do {
 			userDetails = (UserDetails) session.get(UserDetails.class, i);
-			System.out.println("ID       :: " + userDetails.getUserId());
-			System.out.println("UserName :: " + userDetails.getUserName());
-			System.out.println("Address  :: " + userDetails.getAddress());
-			System.out.println("Joining  :: " + userDetails.getDate());
-			System.out.println("Country  :: " + userDetails.getCountry());
-			i++;
-		}
+			if (null != userDetails) {
+				System.out.println("ID       :: " + userDetails.getUserId());
+				System.out.println("UserName :: " + userDetails.getUserName());
+				System.out.println("Address  :: " + userDetails.getDescription());
+				System.out.println("Joining  :: " + userDetails.getDate());
+				System.out.println("Country  :: " + userDetails.getCountry());
+				i++;
+			} else {
+				break;
+			}
+		} while (true);
 	}
 
 }
