@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        
+<hibernate-configuration>
+	<session-factory>
+		<!-- DataBase Connection -->
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+		<property name="hibernate.connection.username">hr</property>
+		<property name="hibernate.connection.password">hr</property>
+
+		<!-- JDBC Connection Pool -->
+		<property name="hibernate.connection.pool_size">1</property>
+
+		<!-- JDBC Current Session Context -->
+		<property name="hibernate.current_session_context_class">thread</property>
+
+		<!-- SQHW SQL QUERIES -->
+		<property name="hibernate.show_sql">true</property>
+
+		<!-- SQL Dialect -->
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+
+		<!-- Auto Commit -->
+		<!-- <property name="hibernate.connection.autocommit">true</property>-->
+
+		<!-- update/create the database each time the session factory is created. -->
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		<!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+
+		<mapping class="com.vikram.bishwajit.dto.UserDetails"/>
+	</session-factory>
+</hibernate-configuration>
