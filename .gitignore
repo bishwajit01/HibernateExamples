@@ -5,3 +5,10 @@ FirstHibernate/bin/*
 FirstHibernate/target/*
 FirstHibernate/.classpath
 FirstHibernate/.project
+/.metadata/
+/.recommenders/
+HibernateCollections/.settings/*
+HibernateCollections/bin/*
+HibernateCollections/target/*
+HibernateCollections/.classpath
+HibernateCollections/.project
