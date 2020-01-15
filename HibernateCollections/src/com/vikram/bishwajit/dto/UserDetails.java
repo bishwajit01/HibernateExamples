@@ -1,8 +1,8 @@
 package com.vikram.bishwajit.dto;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -10,13 +10,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.CollectionId;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 /**
  * @author Bishwajit.
@@ -48,7 +52,7 @@ public class UserDetails {
 
 	@ElementCollection
 	@JoinTable(name = "USER_ADDRESS", joinColumns = @JoinColumn(name = "USER_ID"))
-	private Set<Address> listOfAddress = new HashSet<Address>();
+	private Collection<Address> listOfAddress = new ArrayList<Address>();
 
 	/**
 	 * @return the country
@@ -123,14 +127,14 @@ public class UserDetails {
 	/**
 	 * @return the listOfAddress
 	 */
-	public Set<Address> getListOfAddress() {
+	public Collection<Address> getListOfAddress() {
 		return listOfAddress;
 	}
 
 	/**
 	 * @param listOfAddress the listOfAddress to set
 	 */
-	public void setListOfAddress(Set<Address> listOfAddress) {
+	public void setListOfAddress(Collection<Address> listOfAddress) {
 		this.listOfAddress = listOfAddress;
 	}
 
