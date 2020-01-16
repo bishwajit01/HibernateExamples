@@ -17,3 +17,8 @@ OneToOneMapping/bin/*
 OneToOneMapping/target/*
 OneToOneMapping/.classpath
 OneToOneMapping/.project
+OneToManyMapping/.settings/*
+OneToManyMapping/bin/*
+OneToManyMapping/target/*
+OneToManyMapping/.classpath
+OneToManyMapping/.project
