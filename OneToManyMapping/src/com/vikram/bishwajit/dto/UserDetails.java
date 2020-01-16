@@ -30,8 +30,7 @@ public class UserDetails {
 	private String userName;
 
 	@OneToMany
-	@JoinTable(name = "USER_VEHICLE",
-			   joinColumns = @JoinColumn(name = "USER_ID"), inverseJoinColumns = @JoinColumn(name = "VEHICLE_ID"))
+	@JoinTable(name = "USER_VEHICLE", joinColumns = @JoinColumn(name = "USER_ID"), inverseJoinColumns = @JoinColumn(name = "VEHICLE_ID"))
 	private Collection<Vehicle> listOfVehicle = new ArrayList<Vehicle>();
 
 	/**

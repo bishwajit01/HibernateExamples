@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,7 +23,10 @@ public class Vehicle {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "VEHICLE_ID")
 	private int vehicleId;
-
+	
+	@ManyToOne
+	private UserDetails userDetails;
+	
 	@Column(name = "VEHICLE_NAME")
 	private String vehicleName;
 
@@ -52,6 +56,20 @@ public class Vehicle {
 	 */
 	public void setVehicleName(String vehicleName) {
 		this.vehicleName = vehicleName;
+	}
+
+	/**
+	 * @return the userDetails
+	 */
+	public UserDetails getUserDetails() {
+		return userDetails;
+	}
+
+	/**
+	 * @param userDetails the userDetails to set
+	 */
+	public void setUserDetails(UserDetails userDetails) {
+		this.userDetails = userDetails;
 	}
 
 }

@@ -53,6 +53,10 @@ public class HibernateTest {
 		userDetails2.getListOfVehicle().add(vehicle2);
 		userDetails2.getListOfVehicle().add(vehicle1);
 
+		// Adding the Bi-Directional.
+		vehicle1.setUserDetails(userDetails1);
+		vehicle2.setUserDetails(userDetails1);
+
 		// Creating the Session factory from Configuration File.
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
