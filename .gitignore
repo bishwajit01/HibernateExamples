@@ -12,3 +12,8 @@ HibernateCollections/bin/*
 HibernateCollections/target/*
 HibernateCollections/.classpath
 HibernateCollections/.project
+OneToOneMapping/.settings/*
+OneToOneMapping/bin/*
+OneToOneMapping/target/*
+OneToOneMapping/.classpath
+OneToOneMapping/.project
