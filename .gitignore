@@ -22,3 +22,13 @@ OneToManyMapping/bin/*
 OneToManyMapping/target/*
 OneToManyMapping/.classpath
 OneToManyMapping/.project
+ManyToManyMapping/.settings/*
+ManyToManyMapping/bin/*
+ManyToManyMapping/target/*
+ManyToManyMapping/.classpath
+ManyToManyMapping/.project
+MappedByMapping/.settings/*
+MappedByMapping/bin/*
+MappedByMapping/target/*
+MappedByMapping/.classpath
+MappedByMapping/.project
