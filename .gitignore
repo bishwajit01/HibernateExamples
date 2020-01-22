@@ -37,3 +37,9 @@ Inheritance/bin/*
 Inheritance/target/*
 Inheritance/.classpath
 Inheritance/.project
+InheritanceTablePerClass/.settings/*
+InheritanceTablePerClass/bin/*
+InheritanceTablePerClass/target/*
+InheritanceTablePerClass/.classpath
+InheritanceTablePerClass/.project
+
