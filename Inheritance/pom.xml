@@ -5,6 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Inheritance</name>
   <description>Inheritance Implementation</description>
+  
   <dependencies>
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 		<dependency>
@@ -71,7 +72,6 @@
 			<systemPath>${project.basedir}/ojdbc6.jar</systemPath>
 		</dependency>
 	</dependencies>
-  
   
   <build>
     <sourceDirectory>src</sourceDirectory>
