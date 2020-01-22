@@ -1,6 +1,5 @@
 package com.vikram.bishwajit.dto;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 /**
  * 
