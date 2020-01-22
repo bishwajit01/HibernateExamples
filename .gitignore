@@ -32,3 +32,8 @@ MappedByMapping/bin/*
 MappedByMapping/target/*
 MappedByMapping/.classpath
 MappedByMapping/.project
+Inheritance/.settings/*
+Inheritance/bin/*
+Inheritance/target/*
+Inheritance/.classpath
+Inheritance/.project
