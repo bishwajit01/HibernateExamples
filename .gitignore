@@ -42,4 +42,8 @@ InheritanceTablePerClass/bin/*
 InheritanceTablePerClass/target/*
 InheritanceTablePerClass/.classpath
 InheritanceTablePerClass/.project
-
+ImplementingJoinedStrategy/.settings/*
+ImplementingJoinedStrategy/bin/*
+ImplementingJoinedStrategy/target/*
+ImplementingJoinedStrategy/.classpath
+ImplementingJoinedStrategy/.project
