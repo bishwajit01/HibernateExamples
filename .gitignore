@@ -47,3 +47,8 @@ ImplementingJoinedStrategy/bin/*
 ImplementingJoinedStrategy/target/*
 ImplementingJoinedStrategy/.classpath
 ImplementingJoinedStrategy/.project
+CRUDOperation/.settings/*
+CRUDOperation/bin/*
+CRUDOperation/target/*
+CRUDOperation/.classpath
+CRUDOperation/.project
