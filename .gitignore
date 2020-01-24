@@ -52,3 +52,8 @@ CRUDOperation/bin/*
 CRUDOperation/target/*
 CRUDOperation/.classpath
 CRUDOperation/.project
+HQLIntroduction/.settings/*
+HQLIntroduction/bin/*
+HQLIntroduction/target/*
+HQLIntroduction/.classpath
+HQLIntroduction/.project
