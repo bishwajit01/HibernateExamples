@@ -51,6 +51,34 @@ public class HibernateTest {
 		Query query7 = session.createQuery("select max(user_id) from UserDetails");
 		List<String> listUserDetails7 = (List<String>) query7.list();
 
+		/*
+		 * This may lead to SQL INJECTION. Because it will return all the user, even
+		 * though the first condition is true or false. As second condition will be
+		 * always true.
+		 * 
+		 */
+		String userId1 = "6 or 1 = 1";
+		Query query8 = session.createQuery("from UserDetails where user_id < " + userId1);
+		List<UserDetails> listUserDetails8 = (List<UserDetails>) query8.list();
+
+		/**
+		 * Parameter binding.
+		 * 
+		 */
+		String userId2 = "6";
+		String userName1 = "Vikram";
+		Query query9 = session.createQuery("from UserDetails where user_id < ? and userName = ?");
+		query9.setInteger(0, Integer.parseInt(userId2));
+		query9.setString(1, userName1);
+		List<UserDetails> listUserDetails9 = (List<UserDetails>) query9.list();
+
+		String userId3 = "6";
+		String userName2 = "Vikram";
+		Query query10 = session.createQuery("from UserDetails where user_id < :user_id and userName = :userName");
+		query9.setInteger("user_id", Integer.parseInt(userId2));
+		query9.setString("userName", userName1);
+		List<UserDetails> listUserDetails10 = (List<UserDetails>) query10.list();
+
 		session.getTransaction().commit();
 		session.close();
 
