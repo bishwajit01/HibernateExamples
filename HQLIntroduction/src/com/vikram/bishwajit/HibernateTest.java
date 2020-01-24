@@ -1,6 +1,7 @@
 package com.vikram.bishwajit;
 
 import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -52,19 +53,16 @@ public class HibernateTest {
 		List<String> listUserDetails7 = (List<String>) query7.list();
 
 		/*
-		 * This may lead to SQL INJECTION. Because it will return all the user, even
-		 * though the first condition is true or false. As second condition will be
-		 * always true.
+		 * This may lead to SQL INJECTION.
+		 * Because it will return all the user, even though the first condition is true or false.
+		 * As second condition will be always true.
 		 * 
 		 */
 		String userId1 = "6 or 1 = 1";
 		Query query8 = session.createQuery("from UserDetails where user_id < " + userId1);
 		List<UserDetails> listUserDetails8 = (List<UserDetails>) query8.list();
 
-		/**
-		 * Parameter binding.
-		 * 
-		 */
+		// Parameter Bindings.
 		String userId2 = "6";
 		String userName1 = "Vikram";
 		Query query9 = session.createQuery("from UserDetails where user_id < ? and userName = ?");
@@ -79,6 +77,21 @@ public class HibernateTest {
 		query9.setString("userName", userName1);
 		List<UserDetails> listUserDetails10 = (List<UserDetails>) query10.list();
 
+		/**
+		 * Named Query
+		 */
+		Query query11 = session.getNamedQuery("UserDetailsById");
+		query11.setInteger(0, 2);
+		List<UserDetails> listUserDetails11 = (List<UserDetails>) query11.list();
+		
+		/**
+		 * Named NativeQuery
+		 */
+		Query query12 = session.getNamedQuery("UserDetailsByName");
+		query11.setString(0, "Bishwajit 1");
+		List<UserDetails> listUserDetails12 = (List<UserDetails>) query12.list();
+		
+		// Session Commit and Close
 		session.getTransaction().commit();
 		session.close();
 
